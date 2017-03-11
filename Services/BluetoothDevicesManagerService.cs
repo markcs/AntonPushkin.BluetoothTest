@@ -1,27 +1,22 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AntonPushkin.BlueToothTest.Services;
+using AntonPushkin.BlueToothTest;
+using InTheHand.Net.Bluetooth;
 
 namespace AntonPushkin.BlueToothTest
 {
     public class BluetoothDevicesManagerService : IBluetoothDevicesManagerService
     {
-        public async Task<bool> AsyncCheckThatDevicesIsAvailable(IEnumerable<string> devices)
+        public IList<BluetoothDevice> AsyncGetListOfPairedDevices()
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<string>> AsyncGetListOfPairedDevices()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<string>> AsyncGetListOfUnPairedDevices()
-        {
-            throw new NotImplementedException();
+            var btClient = new InTheHand.Net.Sockets.BluetoothClient();
+            InTheHand.Net.Sockets.BluetoothDeviceInfo[] array = btClient.DiscoverDevices();
+            var devices = (IList<BluetoothDevice>) array.Select(a => new BluetoothDevice(a)).ToList();
+            return devices;
         }
     }
 }

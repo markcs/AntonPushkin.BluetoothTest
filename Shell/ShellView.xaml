@@ -37,9 +37,9 @@
 
             <!-- buttons -->
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Button Margin="6">Add</Button>
-                <Button Margin="6">Remove</Button>
-                <Button Margin="6">Refresh</Button>
+                <Button Margin="6" Content="Add"     Command="{Binding AddCommand}"/>
+                <Button Margin="6" Content="Remove"  Command="{Binding RemoveCommand}"/>
+                <Button Margin="6" Content="Refresh" Command="{Binding RefreshCommand}"/>
             </StackPanel>
 
             <!-- lock Windows devices -->
@@ -47,6 +47,22 @@
                 <ListBox ItemsSource="{Binding TriggerDevices}">
                 </ListBox>
             </GroupBox>
+
+            <Grid Grid.ColumnSpan="3"  Visibility="{Binding IsDeviceListBusy, Converter={StaticResource booleanToVisibilityConverter}}">
+            <!-- cover -->
+            <Border Background="Black" Opacity="0.1"/>
+
+            <!-- busyMessage -->
+                <Border Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="3" BorderBrush="Black" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect/>
+                    </Border.Effect>
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Wait..." VerticalAlignment="Center" Margin="3" HorizontalAlignment="Center"/>
+                        <ProgressBar IsEnabled="True" IsIndeterminate="True" Height="6" Width="100" Margin="3"/>
+                </StackPanel>
+            </Border>
+            </Grid>
         </Grid>
     </DockPanel>
 </Window>
