@@ -1,3 +1,4 @@
+using AntonPushkin.BlueToothTest.Services;
 using GalaSoft.MvvmLight;
 
 namespace AntonPushkin.BlueToothTest
@@ -16,19 +17,14 @@ namespace AntonPushkin.BlueToothTest
     /// </summary>
     public class ShellViewModel : ViewModelBase
     {
+        private IBluetoothDevicesManagerService bluetoothManagerService;
+        
         /// <summary>
         /// Initializes a new instance of the ShellViewModel class.
         /// </summary>
-        public ShellViewModel()
+        public ShellViewModel(IBluetoothDevicesManagerService bluetoothManagerService)
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            this.bluetoothManagerService = bluetoothManagerService;
         }
     }
 }

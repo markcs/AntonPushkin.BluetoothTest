@@ -8,6 +8,15 @@
         DataContext="{Binding Shell, Source={StaticResource Locator}}"
         d:DataContext="{d:DesignInstance Type={x:Type local:ShellViewModel}}"        
         Title="{Binding Title}" Height="480" Width="640" WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Padding" Value="6"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
             <TextBlock Text="{Binding StatusText}"></TextBlock>

@@ -78,6 +78,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\BluetoothDevicesManagerService.cs" />
+    <Compile Include="Services\IBluetoothDevicesManagerService.cs" />
     <Compile Include="Shell\ShellViewModel.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
     <Page Include="Shell\ShellView.xaml">
@@ -123,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Icons\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="BluetoothIcon.ico" />
