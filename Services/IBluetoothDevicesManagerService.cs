@@ -6,6 +6,8 @@ namespace AntonPushkin.BlueToothTest
 {
     public interface IBluetoothDevicesManagerService
     {
-        IList<BluetoothDevice> AsyncGetListOfPairedDevices();
+        IList<BluetoothDevice> GetListOfPairedDevices();
+
+        IList<BluetoothDevice> GetListOfNotConnectedDevices();
     }
 }

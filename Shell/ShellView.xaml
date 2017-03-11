@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AntonPushkin.BlueToothTest"        
         mc:Ignorable="d"
         DataContext="{Binding Shell, Source={StaticResource Locator}}"
-        d:DataContext="{d:DesignInstance Type={x:Type local:ShellViewModel}}"        
+        d:DataContext="{d:DesignInstance Type={x:Type local:ShellViewModel}}"                
         Title="{Binding Title}" Height="480" Width="640" WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
@@ -16,6 +16,10 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
+    
+    <Window.InputBindings>
+        <KeyBinding Key="Escape" Command="{Binding ResetCountdownCommand}"/>
+    </Window.InputBindings>
     
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom">
@@ -31,7 +35,7 @@
 
             <!-- paired bluetooth devices -->
             <GroupBox Header="Available bluetooth devices">
-                <ListBox ItemsSource="{Binding PairedDevices}">
+                <ListBox ItemsSource="{Binding PairedDevices}" SelectedItem="{Binding SelectedDevice, Mode=OneWayToSource}">
                 </ListBox>
             </GroupBox>
 
@@ -44,7 +48,7 @@
 
             <!-- lock Windows devices -->
             <GroupBox Header="Security OS triggers" Grid.Column="2">
-                <ListBox ItemsSource="{Binding TriggerDevices}">
+                <ListBox ItemsSource="{Binding TriggerDevices}" SelectedItem="{Binding SelectedTriggerDevice, Mode=OneWayToSource}">
                 </ListBox>
             </GroupBox>
 

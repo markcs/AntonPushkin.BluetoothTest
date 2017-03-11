@@ -82,6 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\RundllHelper.cs" />
     <Compile Include="Model\BluetoothDevice.cs" />
     <Compile Include="Services\BluetoothDevicesManagerService.cs" />
     <Compile Include="Services\IBluetoothDevicesManagerService.cs" />
